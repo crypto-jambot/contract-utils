@@ -11,8 +11,6 @@ jobs:
   build:
     if: "!contains(github.event.commits[0].author.name, 'GitHub Actions Bot')"
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     permissions:
       contents: write
       packages: write
@@ -36,4 +34,7 @@ jobs:
 #               GITHUB_USER: GitHub Actions Bot
       - name: Release and Deploy
         run: mvn release:clean release:prepare release:perform -DskipTests -s settings.xml
+        env:
+          GITHUB_USERNAME: GitHub Actions Bot
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
