@@ -25,7 +25,7 @@
 
     <distributionManagement>
         <repository>
-            <id>crypto-jambot</id>
+            <id>github</id>
             <name>contract-utils</name>
             <url>https://maven.pkg.github.com/crypto-jambot/contract-utils</url>
         </repository>
