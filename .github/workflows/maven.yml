@@ -5,7 +5,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "feature/ci-cd-libs-java" ]
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '11'
-#          distribution: 'temurin'
+          distribution: 'temurin'
 #          cache: maven
 #          server-id: github
 #      - name: Setup git config
