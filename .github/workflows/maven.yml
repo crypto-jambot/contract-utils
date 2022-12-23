@@ -33,8 +33,12 @@ jobs:
 #               GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 #               GITHUB_USER: GitHub Actions Bot
       - name: Release and Deploy
+        run: mvn release:clean release:prepare -DskipTests -s settings.xml
+        env:
+          GITHUB_USERNAME: GitHub Actions Bot
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
         run: mvn deploy
-#        run: mvn release:clean release:prepare release:perform -DskipTests -s settings.xml
         env:
           GITHUB_USERNAME: GitHub Actions Bot
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
