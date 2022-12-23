@@ -20,6 +20,7 @@
     <scm>
         <connection>scm:git:ssh://${developerConnectionURL}</connection>
         <developerConnection>scm:git:ssh://${developerConnectionURL}</developerConnection>
+        <url>https://github.com/crypto-jambot/contract-utils.git</url>
       <tag>HEAD</tag>
   </scm>
 
@@ -113,7 +114,7 @@
         </repository>
         <repository>
             <id>crypto-jambot</id>
-            <url>https://maven.pkg.github.com/crypto-jambot/contract-utils</url>
+            <url>https://maven.pkg.github.com/crypto-jambot/contract-utilshttps://maven.pkg.github.com/crypto-jambot/contract-utils</url>
         </repository>
     </repositories>
 
