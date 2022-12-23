@@ -31,9 +31,9 @@ jobs:
         env:
           GITHUB_USERNAME: GitHub Actions Bot
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Release
-        run: mvn deploy
-        env:
-          GITHUB_USERNAME: GitHub Actions Bot
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Release
+#        run: mvn deploy
+#        env:
+#          GITHUB_USERNAME: GitHub Actions Bot
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
