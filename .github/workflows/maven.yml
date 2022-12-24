@@ -27,7 +27,7 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
       - name: Release
-        run: mvn versions:set deploy -DremoveSnapshot
+        run: mvn versions:set -DremoveSnapshot deploy
         env:
           GITHUB_USERNAME: GitHub Actions Bot
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
