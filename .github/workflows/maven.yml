@@ -12,7 +12,7 @@ jobs:
     if: "!contains(github.event.commits[0].author.name, 'GitHub Actions Bot')"
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write|read
       packages: write
     steps:
       - uses: actions/checkout@v3
@@ -26,18 +26,11 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-#      - name: Create settings
-#        run: |
-#          echo "<settings><servers><server><id>github</id><username>GitHub Actions Bot</username><password>${{ secrets.GITHUB_TOKEN }}</password></server></servers></settings>" > ~/.m2/settings.xml
-#          mvn release:clean release:prepare release:perform -DskipTests
-      - name: Deploy to Github Package Registry
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create settings and release
         run: |
-          mkdir -p ~/.m2
-          echo "<settings><servers><server><id>gh</id><username>$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')</username><password>\${env.GITHUB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
-          REPO="gh::default::https://maven.pkg.github.com/${GITHUB_REPOSITORY}"
-          mvn deploy -DaltReleaseDeploymentRepository="${REPO}" -DaltSnapshotDeploymentRepository="${REPO}"
+          echo "<settings><servers><server><id>github</id><username>GitHub Actions Bot</username><password>${{ secrets.GITHUB_TOKEN }}</password></server></servers></settings>" > ~/.m2/settings.xml
+          mvn release:clean release:prepare release:perform -DskipTests
+
 
 
 
