@@ -19,8 +19,8 @@
         <connection>https://github.com/crypto-jambot/contract-utils.git</connection>
     </properties>
     <scm>
-        <connection>scm:git:ssh://${developerConnectionURL}</connection>
-        <developerConnection>scm:git:ssh://${developerConnectionURL}</developerConnection>
+        <connection>scm:git:${connection}</connection>
+        <developerConnection>scm:git:${connection}</developerConnection>
         <url>${connection}</url>
       <tag>HEAD</tag>
   </scm>
