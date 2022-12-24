@@ -15,12 +15,12 @@
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
         <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
         <web3j.version>4.9.4</web3j.version>
-        <developerConnectionURL>git@github.com/crypto-jambot/contract-utils.git</developerConnectionURL>
+        <developerConnectionURL>git@github.com:crypto-jambot/contract-utils.git</developerConnectionURL>
         <connection>https://github.com/crypto-jambot/contract-utils.git</connection>
     </properties>
     <scm>
-        <connection>scm:git:ssh://${developerConnectionURL}</connection>
-        <developerConnection>scm:git:ssh://${developerConnectionURL}</developerConnection>
+        <connection>scm:git:${connection}</connection>
+        <developerConnection>scm:git:${developerConnectionURL}</developerConnection>
       <tag>HEAD</tag>
   </scm>
 
