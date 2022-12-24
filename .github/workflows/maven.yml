@@ -36,7 +36,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release and Deploy
         run: |
-          mvn versions:set -DnewVersion=${project.version}-SNAPSHOT
+          mvn versions:set -DnewVersion=$(echo ${project.version}-SNAPSHOT)
           mvn release:clean release:prepare -DskipTests -s settings.xml
         env:
           GITHUB_USERNAME: GitHub Actions Bot
