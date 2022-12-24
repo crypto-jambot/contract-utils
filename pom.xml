@@ -4,7 +4,7 @@
 
     <groupId>dev.rabbit</groupId>
     <artifactId>contract-utils</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <packaging>jar</packaging>
 
@@ -21,7 +21,7 @@
         <connection>scm:git:${connection}</connection>
         <developerConnection>scm:git:${connection}</developerConnection>
         <url>${connection}</url>
-      <tag>contract-utils-1.0.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <distributionManagement>
