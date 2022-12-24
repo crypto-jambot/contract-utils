@@ -26,10 +26,21 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-      - name: Create settings
+#      - name: Create settings
+#        run: |
+#          echo "<settings><servers><server><id>github</id><username>GitHub Actions Bot</username><password>${{ secrets.GITHUB_TOKEN }}</password></server></servers></settings>" > ~/.m2/settings.xml
+#          mvn release:clean release:prepare release:perform -DskipTests
+      - name: Deploy to Github Package Registry
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "<settings><servers><server><id>github</id><username>GitHub Actions Bot</username><password>${{ secrets.GITHUB_TOKEN }}</password></server></servers></settings>" > ~/.m2/settings.xml
-          mvn release:clean release:prepare release:perform -DskipTests
+          mkdir -p ~/.m2
+          echo "<settings><servers><server><id>gh</id><username>$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')</username><password>\${env.GITHUB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
+          REPO="gh::default::https://maven.pkg.github.com/${GITHUB_REPOSITORY}"
+          mvn deploy -DaltReleaseDeploymentRepository="${REPO}" -DaltSnapshotDeploymentRepository="${REPO}"
+
+
+
 #      - name: Release and Deploy
 #        run: mvn release:clean release:prepare release:perform -DskipTests -s settings.xml
 #        env:
