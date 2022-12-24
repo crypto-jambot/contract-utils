@@ -4,7 +4,7 @@
 
     <groupId>dev.rabbit</groupId>
     <artifactId>contract-utils</artifactId>
-    <version>1.0.12-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <packaging>jar</packaging>
 
@@ -15,7 +15,6 @@
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
         <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
         <web3j.version>4.9.4</web3j.version>
-        <developerConnectionURL>git@github.com:crypto-jambot/contract-utils.git</developerConnectionURL>
         <connection>https://github.com/crypto-jambot/contract-utils.git</connection>
     </properties>
     <scm>
