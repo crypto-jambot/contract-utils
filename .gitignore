@@ -2,3 +2,5 @@
 /output
 .DS_Store
 target/
+*.versionsBackup
+release.properties
