@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <solidity.version>0.5.16</solidity.version>
+        <solidity.version>0.8.9</solidity.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <maven-exec-plugin.version>1.6.0</maven-exec-plugin.version>
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
@@ -87,22 +87,30 @@
                 <groupId>org.web3j</groupId>
                 <artifactId>web3j-maven-plugin</artifactId>
                 <version>${web3j.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.web3j</groupId>
+                        <artifactId>web3j-sokt</artifactId>
+                        <version>0.2.1</version>
+                    </dependency>
+                </dependencies>
                 <configuration>
                     <packageName>dev.rabbit.generated</packageName>
                     <soliditySourceFiles>
 <!--                        <directory>src/main/resources/solidity/uniswap/v3</directory>-->
-                        <directory>src/main/resources/solidity/uniswap/v2</directory>
+<!--                        <directory>src/main/resources/solidity/uniswap/v2</directory>-->
+                        <directory>src/main/resources/solidity/jam</directory>
                         <includes>**/*.sol</includes>
                     </soliditySourceFiles>
                 </configuration>
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>generate-sources</goal>-->
-<!--                        </goals>-->
-<!--                        <phase>validate</phase>-->
-<!--                    </execution>-->
-<!--                </executions>-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
